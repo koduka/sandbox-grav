@@ -9,7 +9,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - grav/cms:/var/www/html
+      - grav:/var/www/html
     networks:
       default:
 
@@ -18,7 +18,7 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: $PWD/grav
+      device: $PWD/cms
       o: bind
 
 networks:
