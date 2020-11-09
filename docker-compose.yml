@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  cms:
+    build: ./docker/grav
+    container_name: cms
+    environment:
+      - TZ=${TZ}
+    ports:
+      - "8080:80"
+    volumes:
+      - grav/cms:/var/www/html
+    networks:
+      default:
+
+volumes:
+  grav:
+    driver: local
+    driver_opts:
+      type: none
+      device: $PWD/grav
+      o: bind
+
+networks:
+  default:
